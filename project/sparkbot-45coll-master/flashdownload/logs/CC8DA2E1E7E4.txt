@@ -1,137 +1,0 @@
-*************************** START ****************************
-START TIME: 202502201509
-CONNECT BAUD: 115200
-set state: ESP_DL_SYNC
-serial port opened
------------
-baud:115200
-root baud:115200
--------------
-===============BAUD : 115200===============CALL DEVICE SYNC
-connecting...
-chip sync ok
-mac l: 0xa2e1e7e4
-mac h: 0xcc8d
-get mac res: 1
-get flash id : 0x001840c8
-manufacturer_id: 0xc8
-device_id: 0x4018
-Wrote 13552 bytes (9352 compressed) at 0x00000000 in 0.1 seconds (effective 1609.9 kbit/s)...
-Hash of data verified.Wrote 3072 bytes (146 compressed) at 0x00008000 in 0.0 seconds (effective 860.2 kbit/s)...
-Hash of data verified.Wrote 8192 bytes (31 compressed) at 0x0000e000 in 0.0 seconds (effective 2421.6 kbit/s)...
-Hash of data verified.com closed
-Use time: 47 s
-Download result: FAIL
-*************************** END ****************************
-
-*************************** START ****************************
-START TIME: 202502201510
-CONNECT BAUD: 115200
-set state: ESP_DL_SYNC
-serial port opened
------------
-baud:115200
-root baud:115200
--------------
-===============BAUD : 115200===============CALL DEVICE SYNC
-connecting...
-chip sync ok
-mac l: 0xa2e1e7e4
-mac h: 0xcc8d
-get mac res: 1
-get flash id : 0x001840c8
-manufacturer_id: 0xc8
-device_id: 0x4018
-Wrote 13552 bytes (9352 compressed) at 0x00000000 in 0.1 seconds (effective 1622.0 kbit/s)...
-Hash of data verified.Wrote 3072 bytes (146 compressed) at 0x00008000 in 0.0 seconds (effective 875.3 kbit/s)...
-Hash of data verified.Wrote 8192 bytes (31 compressed) at 0x0000e000 in 0.0 seconds (effective 2375.2 kbit/s)...
-Hash of data verified.com closed
-Use time: 32 s
-Download result: FAIL
-*************************** END ****************************
-
-*************************** START ****************************
-START TIME: 202502201511
-CONNECT BAUD: 115200
-set state: ESP_DL_SYNC
-serial port opened
------------
-baud:115200
-root baud:115200
--------------
-===============BAUD : 115200===============CALL DEVICE SYNC
-connecting...
-chip sync ok
-mac l: 0xa2e1e7e4
-mac h: 0xcc8d
-get mac res: 1
-get flash id : 0x001840c8
-manufacturer_id: 0xc8
-device_id: 0x4018
-Wrote 13552 bytes (9352 compressed) at 0x00000000 in 0.1 seconds (effective 1613.8 kbit/s)...
-Hash of data verified.Wrote 3072 bytes (146 compressed) at 0x00008000 in 0.0 seconds (effective 890.6 kbit/s)...
-Hash of data verified.Wrote 8192 bytes (31 compressed) at 0x0000e000 in 0.0 seconds (effective 2377.0 kbit/s)...
-Hash of data verified.Wrote 2643824 bytes (1620721 compressed) at 0x00010000 in 19.1 seconds (effective 1105.0 kbit/s)...
-Hash of data verified.
-Leaving...
-com closed
-Use time: 25 s
-Download result: PASS
-*************************** END ****************************
-
-*************************** START ****************************
-START TIME: 202502201514
-CONNECT BAUD: 115200
-set state: ESP_DL_SYNC
-serial port opened
------------
-baud:115200
-root baud:115200
--------------
-===============BAUD : 115200===============CALL DEVICE SYNC
-connecting...
-chip sync ok
-mac l: 0xa2e1e7e4
-mac h: 0xcc8d
-get mac res: 1
-get flash id : 0x001840c8
-manufacturer_id: 0xc8
-device_id: 0x4018
-Wrote 13552 bytes (9352 compressed) at 0x00000000 in 0.1 seconds (effective 1631.2 kbit/s)...
-Hash of data verified.Wrote 3072 bytes (146 compressed) at 0x00008000 in 0.0 seconds (effective 857.7 kbit/s)...
-Hash of data verified.Wrote 8192 bytes (31 compressed) at 0x0000e000 in 0.0 seconds (effective 2363.3 kbit/s)...
-Hash of data verified.set STOP FLG: Truecom closed
-Use time: 41 s
-Download result: FAIL
-*************************** END ****************************
-
-set state: ESP_DL_STOP
-*************************** START ****************************
-START TIME: 202502201515
-CONNECT BAUD: 115200
-set state: ESP_DL_SYNC
-serial port opened
------------
-baud:115200
-root baud:115200
--------------
-===============BAUD : 115200===============CALL DEVICE SYNC
-connecting...
-chip sync ok
-mac l: 0xa2e1e7e4
-mac h: 0xcc8d
-get mac res: 1
-get flash id : 0x001840c8
-manufacturer_id: 0xc8
-device_id: 0x4018
-Wrote 13552 bytes (9352 compressed) at 0x00000000 in 0.1 seconds (effective 1625.7 kbit/s)...
-Hash of data verified.Wrote 3072 bytes (146 compressed) at 0x00008000 in 0.0 seconds (effective 843.9 kbit/s)...
-Hash of data verified.Wrote 8192 bytes (31 compressed) at 0x0000e000 in 0.0 seconds (effective 2332.9 kbit/s)...
-Hash of data verified.Wrote 2643824 bytes (1620721 compressed) at 0x00010000 in 17.9 seconds (effective 1180.7 kbit/s)...
-Hash of data verified.
-Leaving...
-com closed
-Use time: 24 s
-Download result: PASS
-*************************** END ****************************
-

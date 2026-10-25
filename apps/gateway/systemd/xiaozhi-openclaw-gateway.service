@@ -1,0 +1,19 @@
+[Unit]
+Description=Xiaozhi OpenClaw WebSocket Gateway
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=XiaoZhi
+Group=XiaoZhi
+WorkingDirectory=/opt/zhihe/apps/gateway
+EnvironmentFile=/opt/zhihe/apps/gateway/.env
+ExecStart=/opt/zhihe/apps/gateway/.venv/bin/python -m xiaozhi_gateway
+Restart=always
+RestartSec=3
+MemoryMax=700M
+
+[Install]
+WantedBy=multi-user.target
+

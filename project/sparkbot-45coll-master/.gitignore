@@ -1,8 +1,0 @@
-code/head_code/build
-code/head_code/.vscode
-code/head_code/dependencies.lock
-.git
-code/tank_code/build
-code/tank_code/.vscode
-code/tank_code/.devcontainer
-code/tank_codee/dependencies.lock

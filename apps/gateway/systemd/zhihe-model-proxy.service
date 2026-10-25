@@ -1,0 +1,17 @@
+[Unit]
+Description=ZhiHe local model protocol adapter
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=XiaoZhi
+Group=XiaoZhi
+WorkingDirectory=/opt/zhihe/apps/gateway
+ExecStart=/opt/zhihe/apps/gateway/.venv/bin/python /opt/zhihe/apps/gateway/scripts/pollinations_proxy.py
+Restart=always
+RestartSec=5
+MemoryMax=100M
+
+[Install]
+WantedBy=multi-user.target

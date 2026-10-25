@@ -1,6 +1,0 @@
-build/
-node_modules/
-.opencode/
-.vscode/
-*.lock.json
-.opencode

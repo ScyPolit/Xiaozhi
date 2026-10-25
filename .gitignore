@@ -1,6 +1,7 @@
 # Local editor and agent state
 .vscode/
 .opencode/
+.local/
 **/.git-local-backup/
 
 # Secrets and local configuration
@@ -38,9 +39,10 @@ runtime/
 .runtime/
 *.log
 *.pid
+tools/esp-flasher/logs/
+tools/esp-flasher/dl_temp/
 
 # OS files
 .DS_Store
 Thumbs.db
 Desktop.ini
-

@@ -1,0 +1,17 @@
+[Unit]
+Description=ZhiHe LAN device discovery and Xiaozhi configuration
+After=network-online.target xiaozhi-openclaw-gateway.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=XiaoZhi
+Group=XiaoZhi
+WorkingDirectory=/opt/zhihe/apps/gateway
+ExecStart=/opt/zhihe/apps/gateway/.venv/bin/python /opt/zhihe/apps/gateway/scripts/device_discovery.py
+Restart=always
+RestartSec=5
+MemoryMax=80M
+
+[Install]
+WantedBy=multi-user.target
