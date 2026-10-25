@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>智核中控</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0d0f10;--surface:#151819;--raised:#1c2021;--line:#2b3132;--text:#f4f6f4;--muted:#919b98;--green:#69d39b;--amber:#e6bd67;--red:#ef7771;--blue:#70a7e8}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 "Segoe UI","Microsoft YaHei",sans-serif;letter-spacing:0}button,textarea{font:inherit}button{color:var(--text);background:var(--raised);border:1px solid var(--line);border-radius:6px;min-height:42px;cursor:pointer}button:hover{border-color:#566261}button:active{transform:translateY(1px)}button.primary{background:#315d49;border-color:#4b8169}button.stop{background:#4e2a29;border-color:#80413e}.app{height:100vh;display:grid;grid-template-rows:58px 1fr}.topbar{display:flex;align-items:center;justify-content:space-between;padding:0 20px;border-bottom:1px solid var(--line);background:#111415}.brand{font-size:18px;font-weight:700}.brand small{font-size:12px;color:var(--muted);font-weight:400;margin-left:10px}.connection{display:flex;align-items:center;gap:8px;color:var(--muted)}.dot{width:8px;height:8px;border-radius:50%;background:var(--red)}.dot.ok{background:var(--green);box-shadow:0 0 0 3px #69d39b22}.layout{min-height:0;display:grid;grid-template-columns:270px minmax(360px,1fr) 310px}.panel{min-height:0;border-right:1px solid var(--line);display:flex;flex-direction:column}.panel:last-child{border:0}.section{padding:16px;border-bottom:1px solid var(--line)}h2{font-size:12px;text-transform:uppercase;color:var(--muted);margin:0 0 12px;font-weight:600}.status-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.stat{background:var(--surface);border:1px solid var(--line);padding:10px;border-radius:6px;min-width:0}.stat span{display:block;font-size:11px;color:var(--muted)}.stat strong{display:block;margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.green{color:var(--green)}.amber{color:var(--amber)}.chat{flex:1;overflow:auto;padding:20px}.message{max-width:78%;padding:10px 12px;margin:0 0 10px;border-radius:6px;background:var(--surface);border:1px solid var(--line);white-space:pre-wrap;overflow-wrap:anywhere}.message.user{margin-left:auto;background:#172535;border-color:#29455e}.message.assistant{border-left:3px solid var(--green)}.composer{display:grid;grid-template-columns:1fr auto;gap:8px;padding:12px;border-top:1px solid var(--line)}textarea{resize:none;min-height:48px;max-height:130px;background:#101314;color:var(--text);border:1px solid var(--line);border-radius:6px;padding:12px;outline:0}textarea:focus{border-color:#53605d}.send-actions{display:grid;grid-template-columns:44px 72px;gap:6px}.icon{font-size:18px;width:44px}.control{padding:16px}.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.pad button{aspect-ratio:1.25;font-size:18px}.pad .blank{visibility:hidden}.wide{width:100%;margin-top:8px}.events{flex:1;min-height:120px;overflow:auto;padding:0 16px 16px}.event{font-size:12px;color:#c3cac7;padding:8px 0;border-bottom:1px solid #222728}.event time{color:var(--muted);display:block}.stream{margin-top:10px;max-height:120px;overflow:auto;color:#dce2df;white-space:pre-wrap;overflow-wrap:anywhere}.kbd{font-size:11px;color:var(--muted)}@media(max-width:900px){.app{height:auto;min-height:100vh}.layout{grid-template-columns:1fr}.panel{border-right:0;border-bottom:1px solid var(--line);min-height:330px}.panel:first-child{min-height:auto}.topbar{padding:0 12px}.brand small{display:none}}
+    textarea{min-width:0}
+    @media(max-width:900px){.layout{grid-template-columns:minmax(0,1fr)}.panel{min-width:0}.composer{grid-template-columns:minmax(0,1fr)}.send-actions{grid-template-columns:44px minmax(0,1fr)}.send-actions button:last-child{width:100%}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar"><div class="brand">智核 <small>小智机器人中控</small></div><div class="connection"><span id="dot" class="dot"></span><span id="connection">连接中</span></div></header>
+  <main class="layout">
+    <aside class="panel">
+      <div class="section"><h2>设备状态</h2><div class="status-grid">
+        <div class="stat"><span>小智</span><strong id="device">离线</strong></div><div class="stat"><span>模型</span><strong id="model">待机</strong></div>
+        <div class="stat"><span>会话</span><strong id="listen">空闲</strong></div><div class="stat"><span>动作</span><strong id="motion">停止</strong></div>
+      </div></div>
+      <div class="section"><h2>最近输入</h2><div id="lastInput" class="stream">等待唤醒</div></div>
+      <div class="section"><h2>实时输出</h2><div id="lastOutput" class="stream">准备就绪</div></div>
+      <div class="section"><h2>设备地址</h2><div id="deviceInfo" class="kbd">尚未发现</div></div>
+    </aside>
+    <section class="panel">
+      <div id="chat" class="chat"><div class="message assistant">你好，我是小智。</div></div>
+      <div class="composer"><textarea id="input" rows="2" placeholder="向小智发送消息"></textarea><div class="send-actions"><button id="speak" class="icon" title="切换机器人播报">◉</button><button id="send" class="primary">发送</button></div></div>
+    </section>
+    <aside class="panel">
+      <div class="control"><h2>底盘控制</h2><div class="pad">
+        <button class="blank"></button><button data-move="GoForward" title="前进">↑</button><button class="blank"></button>
+        <button data-move="TurnLeft" title="左转">←</button><button class="stop" data-command="Stop" title="停止">■</button><button data-move="TurnRight" title="右转">→</button>
+        <button class="blank"></button><button data-move="GoBack" title="后退">↓</button><button class="blank"></button>
+      </div><button class="wide" data-command="Dance">跳舞</button><button id="wake" class="wide primary">唤醒小智</button><button id="abort" class="wide stop">打断播报</button></div>
+      <h2 style="padding:0 16px">运行事件</h2><div id="events" class="events"></div>
+    </aside>
+  </main>
+</div>
+<script>
+const $=id=>document.getElementById(id);let ws,draft="",speak=true,deviceIp="";
+function bubble(role,text){if(!text)return;const el=document.createElement("div");el.className=`message ${role}`;el.textContent=text;$("chat").appendChild(el);$("chat").scrollTop=$("chat").scrollHeight}
+function eventRow(e){const el=document.createElement("div");el.className="event";const t=new Date((e.ts||Date.now()/1000)*1000).toLocaleTimeString();el.innerHTML=`<time>${t}</time>`;el.append(document.createTextNode(e.message||""));$("events").prepend(el);while($("events").children.length>60)$("events").lastChild.remove()}
+function send(x){if(ws?.readyState===1)ws.send(JSON.stringify(x))}
+function snapshot(s){const online=s.device.connected||s.device.http_online;$("device").textContent=online?"在线":"离线";$("device").className=online?"green":"";$("model").textContent=s.openclaw.busy?"生成中":"待机";$("model").className=s.openclaw.busy?"green":"amber";$("listen").textContent=s.device.listen_state||"空闲";$("motion").textContent=s.device.motion_state||"停止";$("lastInput").textContent=s.openclaw.last_input||"等待唤醒";if(!draft)$("lastOutput").textContent=s.openclaw.last_output||"准备就绪";deviceIp=s.device.ip||deviceIp;$("deviceInfo").textContent=`${s.device.device_id||"小智"} · ${deviceIp||"未发现"}`}
+function connect(){const proto=location.protocol==="https:"?"wss":"ws";ws=new WebSocket(`${proto}://${location.host}/dashboard/ws`);ws.onopen=()=>{$("dot").className="dot ok";$("connection").textContent="中控在线"};ws.onclose=()=>{$("dot").className="dot";$("connection").textContent="正在重连";setTimeout(connect,1000)};ws.onmessage=e=>{const m=JSON.parse(e.data);if(m.type==="snapshot"){snapshot(m);(m.events||[]).forEach(eventRow)}else if(m.type==="state")snapshot(m.snapshot);else if(m.type==="event")eventRow(m.event);else if(m.type==="chat")bubble(m.role,m.text);else if(m.type==="openclaw_delta"){draft+=m.text||"";$("lastOutput").textContent=draft}else if(m.type==="openclaw_done"){bubble("assistant",m.text);draft=""}}}
+async function chat(){const text=$("input").value.trim();if(!text)return;$("input").value="";bubble("user",text);send({type:"chat",text,speak})}
+$("send").onclick=chat;$("input").onkeydown=e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();chat()}};$("speak").onclick=()=>{speak=!speak;$("speak").textContent=speak?"◉":"○";$("speak").title=speak?"机器人播报已开启":"机器人播报已关闭"};$("abort").onclick=()=>send({type:"abort"});$("wake").onclick=()=>{if(deviceIp)fetch(`http://${deviceIp}/xiaozhi_chat`,{method:"POST",headers:{"Content-Type":"text/plain"},body:'{"action":"start"}'}).catch(()=>eventRow({message:"唤醒请求失败"}))};document.querySelectorAll("[data-command]").forEach(b=>b.onclick=()=>send({type:"control",method:b.dataset.command}));document.querySelectorAll("[data-move]").forEach(b=>{const stop=()=>send({type:"control",method:"Stop"});b.onpointerdown=e=>{e.preventDefault();send({type:"control",method:b.dataset.move,parameters:{speed:68,duration_ms:450}})};b.onpointerup=stop;b.onpointerleave=stop;b.onpointercancel=stop});connect();
+</script>
+</body></html>

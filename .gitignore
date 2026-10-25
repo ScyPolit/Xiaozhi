@@ -1,0 +1,46 @@
+# Local editor and agent state
+.vscode/
+.opencode/
+**/.git-local-backup/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build and generated output
+build/
+build-*/
+dist/
+out/
+.cache/
+*.o
+*.obj
+*.elf
+*.map
+
+# Runtime state and logs
+runtime/
+.runtime/
+*.log
+*.pid
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+

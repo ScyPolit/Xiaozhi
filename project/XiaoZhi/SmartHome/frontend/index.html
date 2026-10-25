@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>&#26234;&#33021;&#23478;&#23621; LED &#25511;&#21046;&#31995;&#32479;</title>
+    <link rel="stylesheet" href="./src/style.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="topbar">
+        <div>
+          <p class="eyebrow">STM32F103C8T6 + ESP8266-01S AT</p>
+          <h1>&#26234;&#33021;&#23478;&#23621; LED &#25511;&#21046;&#31995;&#32479;</h1>
+        </div>
+        <div id="connectionStatus" class="status status-offline">&#26410;&#36830;&#25509;</div>
+      </section>
+
+      <section class="control-strip" aria-label="device address">
+        <label class="address-field">
+          <span>&#35774;&#22791;&#22320;&#22336;</span>
+          <input id="apiBaseUrl" type="url" spellcheck="false" placeholder="http://192.168.31.196/">
+        </label>
+        <button id="saveApiBaseUrl" class="button primary" type="button">&#20445;&#23384;&#22320;&#22336;</button>
+        <button id="refreshButton" class="button" type="button">&#21047;&#26032;&#29366;&#24577;</button>
+      </section>
+
+      <section class="actions" aria-label="global control">
+        <button id="allOnButton" class="button success" type="button">&#20840;&#24320;</button>
+        <button id="allOffButton" class="button danger" type="button">&#20840;&#20851;</button>
+        <div id="loadingText" class="loading" hidden>&#25805;&#20316;&#20013;...</div>
+      </section>
+
+      <section id="errorBox" class="error" hidden></section>
+
+      <section id="ledGrid" class="led-grid" aria-label="light list"></section>
+    </main>
+
+    <script src="./src/api.js" defer></script>
+    <script src="./src/main.js" defer></script>
+  </body>
+</html>

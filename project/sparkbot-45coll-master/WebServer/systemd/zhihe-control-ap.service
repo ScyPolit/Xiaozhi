@@ -1,0 +1,14 @@
+[Unit]
+Description=ZhiHe 2.4 GHz device control hotspot
+After=NetworkManager.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStartPre=-/usr/sbin/iw dev wlan0 interface add ap0 type __ap
+ExecStart=/usr/bin/nmcli connection up ZhiHe-Control
+ExecStop=-/usr/bin/nmcli connection down ZhiHe-Control
+
+[Install]
+WantedBy=multi-user.target

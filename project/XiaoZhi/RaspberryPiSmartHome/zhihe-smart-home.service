@@ -1,0 +1,16 @@
+[Unit]
+Description=Zhihe Raspberry Pi Smart Home GPIO API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/opt/zhihe-smart-home
+ExecStart=/opt/zhihe-smart-home/.venv/bin/python app.py --host 0.0.0.0 --port 18880
+Restart=always
+RestartSec=2
+Environment=GPIOZERO_PIN_FACTORY=lgpio
+
+[Install]
+WantedBy=multi-user.target

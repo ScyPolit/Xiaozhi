@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>智能家居 LED 控制系统</title>
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Smart Home Demo</p>
+        <h1>智能家居 LED 控制系统</h1>
+        <p class="subtitle">
+          通过浏览器 → 本地后端 → 串口 → STM32，实现 5 路家庭灯光可视化控制。
+        </p>
+      </div>
+      <div class="hero-actions">
+        <button id="refreshStatusBtn" class="btn btn-secondary">刷新状态</button>
+        <button id="allOnBtn" class="btn btn-primary">一键全开</button>
+        <button id="allOffBtn" class="btn btn-danger">一键全关</button>
+      </div>
+    </header>
+
+    <section class="status-panel">
+      <div class="status-card">
+        <span class="status-label">后端状态</span>
+        <strong id="backendStatus" class="status-value offline">检测中...</strong>
+      </div>
+      <div class="status-card">
+        <span class="status-label">STM32 状态</span>
+        <strong id="stm32Status" class="status-value offline">检测中...</strong>
+      </div>
+      <div class="status-card">
+        <span class="status-label">串口状态</span>
+        <strong id="serialStatus" class="status-value offline">检测中...</strong>
+      </div>
+      <div class="status-card wide">
+        <span class="status-label">提示信息</span>
+        <strong id="messageBox" class="status-message">页面已加载，准备获取设备状态...</strong>
+      </div>
+    </section>
+
+    <main>
+      <section>
+        <div id="ledGrid" class="led-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <template id="ledCardTemplate">
+    <article class="led-card off">
+      <div class="led-card-top">
+        <div>
+          <p class="room-name"></p>
+          <p class="pin-name"></p>
+        </div>
+        <div class="bulb-wrap">
+          <div class="bulb-icon">
+            <span class="bulb-core"></span>
+          </div>
+        </div>
+      </div>
+      <div class="led-card-bottom">
+        <div>
+          <span class="state-label">当前状态</span>
+          <strong class="state-text">关闭</strong>
+        </div>
+        <button class="btn toggle-btn">打开</button>
+      </div>
+    </article>
+  </template>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

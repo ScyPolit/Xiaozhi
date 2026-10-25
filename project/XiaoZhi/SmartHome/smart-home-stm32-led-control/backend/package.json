@@ -1,0 +1,23 @@
+{
+  "name": "smart-home-stm32-led-backend",
+  "version": "1.0.0",
+  "description": "Node.js backend for STM32 smart home LED control demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "stm32",
+    "serialport",
+    "express",
+    "smart-home",
+    "led"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "serialport": "^12.0.0"
+  }
+}
